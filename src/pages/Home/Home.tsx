@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { PlaceHolderApi } from "../requireApi/JsonPlaceHolder"
-import { Photos } from "../types/types"
+import { PlaceHolderApi } from "../../requireApi/JsonPlaceHolder"
+import { Photos } from "../../types/types"
 import { Link } from "react-router-dom"
 import { HomeStyle } from "./style"
 

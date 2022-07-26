@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Photos } from "../types/types"
-import { PlaceHolderApi } from "../requireApi/JsonPlaceHolder"
+import { Photos } from "../../types/types"
+import { PlaceHolderApi } from "../../requireApi/JsonPlaceHolder"
 
 export const Album = () => {
     const [photos, setPhotos] = useState<Photos[]>([])

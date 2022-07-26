@@ -1,6 +1,6 @@
 import {useRoutes } from "react-router-dom"
-import { Home } from "../pages/Home"
-import { Album } from "../pages/Album"
+import { Home } from "../pages/Home/Home"
+import { Album } from "../pages/Album/Album"
 
 export const MainRoutes = () => {
     
