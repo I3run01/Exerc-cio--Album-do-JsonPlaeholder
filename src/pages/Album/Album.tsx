@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import { Photos } from "../../types/types"
 import { PlaceHolderApi } from "../../requireApi/JsonPlaceHolder"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import { AlbumStyle } from './style'
 
 export const Album = () => {
     const [photos, setPhotos] = useState<Photos[]>([])
     const params:number = Number(useParams().index)
-    const navigate = useNavigate()
 
     useEffect(() => {
         PhotosRender()
@@ -17,20 +17,17 @@ export const Album = () => {
         setPhotos(json)
     }
 
-    const handleBackButton = () => {
-        navigate(-1)
-    }
-
-
-
-
     return (
-       <div>
-        <button onClick={handleBackButton}>Voltar</button>
+       <AlbumStyle>
+            
+        <div id="container">
             { photos.map( item => 
-            <div>
-                <img src={item.thumbnailUrl} />
-            </div> ) }
-       </div> 
+                <div className="imgs">
+                    <Link to={`/photo/${params}`}> <img src={item.thumbnailUrl} /> </Link>
+                    
+                </div> ) }
+        </div>
+            
+       </AlbumStyle> 
     )
 }
