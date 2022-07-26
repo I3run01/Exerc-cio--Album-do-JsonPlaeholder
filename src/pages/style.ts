@@ -12,6 +12,19 @@ export const HomeStyle = styled.div`
 
     .link {
         color: black;
+        text-decoration: none;
+
+        
     }
+
+    div {
+        :hover {
+            background-color: #d1d1cf;
+            cursor: pointer;
+        }
+
+    }
+
+    
 
 `

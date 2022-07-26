@@ -11,19 +11,16 @@ export const Home = () => {
         Json()
     }, [])
 
-    
-
     const Json = async () => {
         let json = await PlaceHolderApi.getAllPhotos()
         setPhotos(json)
     }
-    
 
     return (
         <HomeStyle>
-            { photos.map(item => 
+            { photos.map((item, index) => 
             <div className="titles">
-                <Link to='' className="link" > {item.title} </Link>
+                <Link to={`/album/${index}`} className="link" > {item.title} </Link>
             </div> ) }
         </HomeStyle>
     )
