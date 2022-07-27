@@ -7,6 +7,7 @@ import { AlbumStyle } from './style'
 export const Album = () => {
     const [photos, setPhotos] = useState<Photos[]>([])
     const [title, setTitle] = useState('')
+    const [show, setShow] = useState(true)
     const params:number = Number(useParams().index)
 
     useEffect(() => {
@@ -22,7 +23,10 @@ export const Album = () => {
 
     return (
        <AlbumStyle>
-            <h1>{title}</h1> 
+            <h1>{title}</h1>
+            { show &&
+                <h2>Loading</h2>
+            }
             <div id="container">
                 {photos.map( (item, index) => 
                     <div className="imgs">
