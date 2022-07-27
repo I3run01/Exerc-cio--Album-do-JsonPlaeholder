@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { PlaceHolderApi } from "../../requireApi/JsonPlaceHolder"
 import { Photos } from "../../types/types"
 
@@ -8,6 +8,7 @@ export const Photo = () => {
     const [img, setImg] = useState('#')
     const [title, setTitle] = useState('loading...')
     const params:number = Number(useParams().index)
+    const navigate = useNavigate()
 
     useEffect(() => {
         renderPhoto()
@@ -20,9 +21,14 @@ export const Photo = () => {
         setTitle(photos[params].title)
     }
 
+    const handleBackButton = () => {
+        navigate(-1)
+    }
+
     return (
         <div>
             <h1>{title}</h1>
+            <button onClick={handleBackButton}>Voltar</button><br />
             <img src={img} />
         </div>
     )

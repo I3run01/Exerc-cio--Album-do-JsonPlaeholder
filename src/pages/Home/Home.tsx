@@ -18,6 +18,9 @@ export const Home = () => {
 
     return (
         <HomeStyle>
+            { photos.length == 0 &&
+                <h2>Loading</h2>
+            }
             { photos.map((item, index) => 
             <div className="titles">
                 <Link to={`/album/${index}`} className="link" > {item.title} </Link>

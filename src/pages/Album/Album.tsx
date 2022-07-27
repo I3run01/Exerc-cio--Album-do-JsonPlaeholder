@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { Photos } from "../../types/types"
 import { PlaceHolderApi } from "../../requireApi/JsonPlaceHolder"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import { AlbumStyle } from './style'
 
 export const Album = () => {
     const [photos, setPhotos] = useState<Photos[]>([])
     const [title, setTitle] = useState('')
-    const [show, setShow] = useState(true)
     const params:number = Number(useParams().index)
+    const navigate = useNavigate()
 
     useEffect(() => {
         PhotosRender()
@@ -21,10 +21,15 @@ export const Album = () => {
 
     }
 
+    const handleBackButton = () => {
+        navigate(-1)
+    }
+
     return (
        <AlbumStyle>
             <h1>{title}</h1>
-            { show &&
+            <button onClick={handleBackButton}>Voltar</button>
+            {photos.length == 0 &&
                 <h2>Loading</h2>
             }
             <div id="container">
